@@ -1,0 +1,11 @@
+git init
+git remote add origin https://github.com/mgb-avellar/JAVA_Study_Programs.git
+git pull origin main     #(no material do Nelio é origin master, mas comigo não funcionou: tive que colocar main)#
+			 #(aparentemente eu tinha dois branches, main e master. Cuidado na hora de criar repositorios)#
+git status
+git add .
+git status
+git commit -m "Modules 01 and 02 uploaded"
+git log --oneline
+git push -u origin master   #(por alguma razão, aqui teve que ser master, não main)#
+
