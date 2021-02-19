@@ -7,5 +7,7 @@ git add .
 git status
 git commit -m "Modules 01 and 02 uploaded"
 git log --oneline
-git push -u origin master   #(por alguma razão, aqui teve que ser master, não main)#
+git push -u origin master   #(por alguma razão, aqui teve que ser master, não main)#  (agora é com o token gigante)
+
+
 
