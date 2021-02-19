@@ -10,7 +10,9 @@ He is a professor at Instituto Federal do Triângulo Mineiro, Minas Gerais, Braz
 You will find seven modules containing numerous codes whose names I parameterize by date, time, and type as follows: 
 
 date: yyyymmdd
+
 time: XXhYYm
+
 type: EX for examples given during the lectures and EXERCICIOS for the proposed exercises
 
 A typical label would be 20210218_20h00m_EX_matrices, meaning that I coded this example at 8 p.m. on 18th February 2021.
