@@ -61,6 +61,8 @@ public class Order {
         this.orderClient = orderClient;
     }
 
+    // Deixar um get aqui na lista é abrir uma porta para manipulação dela; o caso mais sério do setter
+    //   eu nem pus, mas se eu quiser encapsular minha lista para protegê-la de fato, devo tirar o getter também.
     public List<OrderItem> getOrderItemsList() {
         return orderItemsList;
     }
