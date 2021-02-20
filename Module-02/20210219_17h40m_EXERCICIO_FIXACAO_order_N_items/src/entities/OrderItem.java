@@ -12,6 +12,14 @@ public class OrderItem {
     private Integer orderItemQuantity;
     private Double orderItemPrice;
 
+    /*
+        Note que aqui eu coloco um price que, no fundo, já está em Product product.
+        A razão para eu repetir aqui é que assim eu mantenho o histórico dos preços.
+        Se, por ventura, o preço do produto mudar, ele será mudado na instanciação
+        do produto em si, mas o preço antigo permanecerá na lista.
+
+     */
+
     private Product product;
 
     public OrderItem() {

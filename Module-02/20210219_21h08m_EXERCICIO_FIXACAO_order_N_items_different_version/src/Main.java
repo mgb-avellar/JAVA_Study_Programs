@@ -59,6 +59,14 @@ Total price: $1080.00
         COMO NA VERSÃO ORIGINAL OrderItem RECEBIA O PREÇO E O OBJETO PRODUTO (QUE JÁ TEM O PREÇO), ACABOU
         QUE FORNECER O PREÇO A OrderItem FICOU REDUNDANTE.
 
+        PORÉM, NESSA VERSÃO EU POSSO FICAR SEM UM HISTÓRICO DE PREÇOS.
+
+        A razão para eu repetir o preço em OrderItem é que assim eu mantenho o histórico dos preços.
+        Se, por ventura, o preço do produto mudar, ele será mudado na instanciação
+        do produto em si, mas o preço antigo permanecerá na lista.
+
+        Na versão como está, não tenho essa capacidade.
+
      */
 
         Locale.setDefault(Locale.US);
