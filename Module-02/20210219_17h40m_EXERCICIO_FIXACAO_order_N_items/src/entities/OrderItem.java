@@ -20,7 +20,7 @@ public class OrderItem {
 
      */
 
-    private Product product;
+    private Product product; // Cada item está associado a um produto
 
     public OrderItem() {
 

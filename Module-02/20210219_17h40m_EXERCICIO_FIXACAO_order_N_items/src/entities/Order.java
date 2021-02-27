@@ -23,9 +23,9 @@ public class Order {
     private Date orderMoment;
     private OrderStatus orderStatus;
 
-    private Client orderClient;
+    private Client orderClient; // A Ordem está associada a um cliente
 
-    private List<OrderItem> orderItemsList = new ArrayList<>();
+    private List<OrderItem> orderItemsList = new ArrayList<>(); // A Ordem contém vários itens
 
     public Order(Date orderMoment, OrderStatus orderStatus, Client orderClient) {
         this.orderMoment = orderMoment;
