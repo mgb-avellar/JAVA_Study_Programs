@@ -36,6 +36,12 @@ public class Main {
 
         // Instanciação do serviço (note que no uso da Interface, não preciso mudar o 'new BrazilTaxService()',
         //   pois haverá upcasting; porém, se eu mudar para USTaxService, terei que mudar aqui)
+
+        /*
+        O que acontece aqui é que Main instancia meu objeto da classe concreta, via RentalService que recebe
+        o genérico TaxService. É o que chamamos de Injeção de Dependência por meio de Construtor.
+         */
+
         RentalService rentalService = new RentalService(pricePerHour, pricePerDay, new BrazilTaxService());
 
         // Acesso meu serviço de aluguel e chamo a operação processInvoice, passando meu objeto carRental

@@ -12,7 +12,7 @@ public class RentalService {
     private Double pricePerHour;
     private Double pricePerDay;
 
-    private TaxService taxService; // Associação com a classe BrazilTaxService
+    private TaxService taxService; // Associação com a classe TaxService
 
     public RentalService(Double pricePerHour, Double pricePerDay, TaxService texService) {
         this.pricePerHour = pricePerHour;
