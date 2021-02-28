@@ -25,19 +25,24 @@ public class Main {
         System.out.print("Contract value: ");
         double totalValue = sc.nextDouble();
 
+        // Aqui instancio um contrato
         Contract contract = new Contract(number, date, totalValue);
 
-        System.out.print("Enter number of installments: ");
-        int numberInstallments = sc.nextInt();
-
+        // Aqui instancio o processamento do contrato, ou seja, suas parcelas (installments)
         ContractService contractService = new ContractService(new PayPalService());
 
-        contractService.processContract(contract, numberInstallments);
+        System.out.print("Enter number of installments: ");
+        int numberOfInstallments = sc.nextInt();
+
+        contractService.processContract(contract, numberOfInstallments);
 
         System.out.println("Installments:");
+        double sum = 0.0;
         for (Installment x : contract.getInstallmentList()) {
             System.out.println(x);
+            sum = sum + x.getAmount();
         }
+        System.out.println("Total paid: " + sum);
 
         sc.close();
 

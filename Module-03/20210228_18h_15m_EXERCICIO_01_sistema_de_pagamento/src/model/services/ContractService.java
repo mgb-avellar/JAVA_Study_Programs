@@ -14,22 +14,25 @@ public class ContractService {
         this.onlinePaymentService = onlinePaymentService;
     }
 
-    public void processContract(Contract contract, int numberInstallments) {
+    public void processContract(Contract contract, int numberOfInstallments) {
 
-        double basicQuota = contract.getContractTotalValue() / numberInstallments;
+        double basicQuota = contract.getContractTotalValue() / numberOfInstallments;
 
-        for (int i = 1; i <= numberInstallments; i++) {
-
-            Date date = addMonths(contract.getIssuanceDate(), i);
+        for (int i = 1; i <= numberOfInstallments; i++) {
 
             double updatedQuota = basicQuota + onlinePaymentService.interest(basicQuota, i);
             double fullQuota =  updatedQuota + onlinePaymentService.paymentFee(updatedQuota);
 
-            contract.addInstallment(new Installment(date, fullQuota));
+            Date dueDate = addMonthsForInstallmentsPaymentDate(contract.getIssuanceDate(), i);
+
+            //contract.addInstallment(new Installment(dueDate, fullQuota));
+            contract.getInstallmentList().add(new Installment(dueDate, fullQuota));
+
+            // Acima, duas opções para adicionar a parcela
         }
     }
 
-    private Date addMonths(Date date, int n) {
+    private Date addMonthsForInstallmentsPaymentDate(Date date, int n) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
         cal.add(Calendar.MONTH, n);
