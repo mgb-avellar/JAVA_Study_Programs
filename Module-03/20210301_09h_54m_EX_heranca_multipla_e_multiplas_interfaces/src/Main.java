@@ -1,3 +1,4 @@
+import devices.ConcreteComboDevice;
 import devices.ConcretePrinter;
 import devices.ConcreteScanner;
 
@@ -24,6 +25,11 @@ public class Main {
         s.processDoc("My Email");
         System.out.println("Scan result: " + s.scan());
 
+        System.out.println();
+        ConcreteComboDevice c = new ConcreteComboDevice("2081");
+        c.processDoc("My dissertation");
+        c.print("My dissertation");
+        System.out.println("Scan result: " + c.scan());
 
     }
 }
