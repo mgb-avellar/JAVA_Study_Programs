@@ -1,4 +1,5 @@
 import services.BrazilInterestService;
+import services.InterestService;
 import services.USAInterestService;
 
 import java.util.Locale;
@@ -34,7 +35,7 @@ Payment after 3 months:
         System.out.print("Months: ");
         int months = sc.nextInt();
 
-        BrazilInterestService is = new BrazilInterestService(2.0);
+        InterestService is = new BrazilInterestService(2.0);
 
         double payment = is.payment(amount, months);
 
@@ -50,7 +51,7 @@ Payment after 3 months:
         System.out.print("Months: ");
         months = sc.nextInt();
 
-        USAInterestService is2 = new USAInterestService(1.0);
+        InterestService is2 = new USAInterestService(1.0);
 
         payment = is2.payment(amount, months);
 

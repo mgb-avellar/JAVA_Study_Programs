@@ -1,8 +1,6 @@
 package services;
 
-import java.security.InvalidParameterException;
-
-public class USAInterestService {
+public class USAInterestService implements InterestService {
 
     private double interestRate;
 
@@ -10,21 +8,14 @@ public class USAInterestService {
         this.interestRate = interestRate;
     }
 
+    @Override
     public double getInterestRate() {
         return interestRate;
     }
 
-    public void setInterestRate(double interestRate) {
-        this.interestRate = interestRate;
-    }
-
-    public double payment(Double amount, Integer months) {
-
-        // Programação defensiva:
-        if (months < 1) {
-            throw new InvalidParameterException("Months must be greater than zero.");
-        }
-
-        return ( amount * Math.pow((1 + this.interestRate / 100.0), months));
-    }
+     /*
+    Poderíamos perguntar se o getInterestRate() poderia ser deletado, a exemplo do payment().
+    A resposta é que não, pois getInterestRate() depende da taxa de interesse e a interface
+    não pode ter nem construtores, nem guardar estados.
+     */
 }
