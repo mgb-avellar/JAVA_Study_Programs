@@ -1,14 +1,12 @@
 package model.entities;
 
-public interface Shape {
+import model.enums.Color;
 
-/*
-public abstract class Shape {
-
+public abstract class AbstractShape implements Shape {
 
     private Color color;
 
-    public Shape(Color color) {
+    public AbstractShape(Color color) {
         this.color = color;
     }
 
@@ -19,8 +17,4 @@ public abstract class Shape {
     public void setColor(Color color) {
         this.color = color;
     }
-
- */
-
-    double area();
 }
