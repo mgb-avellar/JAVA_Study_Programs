@@ -1,6 +1,7 @@
 import entities.Product;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -20,7 +21,21 @@ public class Main {
 
         //Collections.sort(list);
 
-        list.sort(new MyComparator());
+        /*
+        Com uma classe anônima dentro do Main, não preciso mais da classe MyComparator e
+        list.sort() precisa ter seu argumento atualizado
+         */
+
+        //list.sort(new MyComparator());
+
+        Comparator<Product> comp = new Comparator<Product>() {
+            @Override
+            public int compare(Product p1, Product p2) {
+                return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+            }
+        };
+
+        list.sort(comp);
 
         System.out.println();
 
