@@ -3,7 +3,6 @@ import entities.Product;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -52,11 +51,15 @@ nova lista contendo os nomes dos produtos em caixa alta.
         Para quarta versão:
          */
 
-        Function<Product, String > func = product -> product.getName().toUpperCase();
-        
-        List<String> upperCasedNamesList =  list.stream().map(func).collect(Collectors.toList());
+        //Function<Product, String > func = product -> product.getName().toUpperCase();
 
+        //List<String> upperCasedNamesList =  list.stream().map(func).collect(Collectors.toList());
 
+        /*
+        Para quinta versão:
+         */
+
+        List<String> upperCasedNamesList =  list.stream().map(product -> product.getName().toUpperCase()).collect(Collectors.toList());
 
         System.out.println();
         upperCasedNamesList.forEach(System.out::println);
