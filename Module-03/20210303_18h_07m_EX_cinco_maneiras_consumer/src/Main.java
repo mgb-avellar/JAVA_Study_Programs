@@ -28,7 +28,7 @@ public class Main {
 
         //list.forEach(new PriceUpdate());
 
-        list.forEach(Product::staticPriceUpdate);
+        list.forEach(Product::nonStaticPriceUpdate);
 
         System.out.println();
 
