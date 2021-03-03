@@ -3,7 +3,6 @@ import entities.Product;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.function.Consumer;
 
 public class Main {
 
@@ -45,9 +44,15 @@ public class Main {
         Para quarta versão:
          */
 
-        Consumer<Product> cons = p -> p.setPrice(p.getPrice() * 1.10);
+        //Consumer<Product> cons = p -> p.setPrice(p.getPrice() * 1.10);
 
-        list.forEach(cons);
+        //list.forEach(cons);
+
+        /*
+        Para quinta versão:
+         */
+
+        list.forEach(p -> p.setPrice(p.getPrice() * 1.10));
 
         System.out.println();
 
