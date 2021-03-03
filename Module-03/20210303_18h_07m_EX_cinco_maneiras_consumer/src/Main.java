@@ -28,6 +28,16 @@ public class Main {
 
         //list.forEach(new PriceUpdate());
 
+        /*
+        Para segunda versão:
+         */
+
+        //list.forEach(Product::staticPriceUpdate);
+
+        /*
+        Para terceira versão:
+         */
+        
         list.forEach(Product::nonStaticPriceUpdate);
 
         System.out.println();
