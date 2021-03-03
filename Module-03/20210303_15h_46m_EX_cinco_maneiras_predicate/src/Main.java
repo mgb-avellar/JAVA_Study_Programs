@@ -19,12 +19,18 @@ public class Main {
         list.add(new Product("HD Case", 80.90));
 
         /*
-        Para a versão 2, cirie um método estático em Product e jogo ele em list.removeIf()
+        Para a versão 2, criei um método estático em Product e jogo ele em list.removeIf()
          */
 
        // list.removeIf(new ProductPredicate());
 
-        list.removeIf(Product::staticProductPredicate);
+        /*
+        Para a versão 3, o mesmo método, porém em versão não estática
+         */
+
+        //list.removeIf(Product::staticProductPredicate);
+
+        list.removeIf(Product::nonStaticProductPredicate);
 
         System.out.println();
 

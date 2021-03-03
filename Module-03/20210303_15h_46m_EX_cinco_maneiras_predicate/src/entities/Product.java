@@ -31,8 +31,18 @@ public class Product {
 
     // Para a versão 2: Crio um método estático que recebe um produto e devolve um booleano
 
-    public static boolean staticProductPredicate (Product product) {
-        return product.getPrice() >= 100.0;
+    //public static boolean staticProductPredicate (Product product) {
+    //    return product.getPrice() >= 100.0;
+    //}
+
+    // Para versão 3: mesmo método acima, porém não estático
+
+    public boolean nonStaticProductPredicate () {
+        return this.price >= 100.0;
+        /*
+        PS: método estático trabalha com o argumento que passarmos para ele.
+            método não estático com o próprio objeto onde estou, ou seja, aqui, (this.) price
+         */
     }
 
     @Override
