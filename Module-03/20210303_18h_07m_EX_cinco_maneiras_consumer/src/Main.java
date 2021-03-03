@@ -1,5 +1,4 @@
 import entities.Product;
-import util.PriceUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,13 @@ public class Main {
         Queremos aumentar o preço de cada produto em 10%
          */
 
-        list.forEach(new PriceUpdate());
+        /*
+        Para segunda versão:
+         */
+
+        //list.forEach(new PriceUpdate());
+
+        list.forEach(Product::staticPriceUpdate);
 
         System.out.println();
 

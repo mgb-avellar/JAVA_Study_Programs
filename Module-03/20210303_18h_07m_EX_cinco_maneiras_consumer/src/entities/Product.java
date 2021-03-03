@@ -29,6 +29,12 @@ public class Product {
         this.price = price;
     }
 
+    // 2a versão
+    public static void staticPriceUpdate(Product product) {
+        product.setPrice(product.getPrice() * 1.10);
+    }
+
+
     @Override
     public String toString() {
         return "Product [name=" + name + ", price=" + String.format("%.2f", price) + "]";
