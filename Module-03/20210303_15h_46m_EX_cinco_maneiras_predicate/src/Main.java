@@ -3,6 +3,7 @@ import entities.Product;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -30,7 +31,16 @@ public class Main {
 
         //list.removeIf(Product::staticProductPredicate);
 
-        list.removeIf(Product::nonStaticProductPredicate);
+        /*
+        Para a versão 4, crio uma variável Predicate
+         */
+
+        //list.removeIf(Product::nonStaticProductPredicate);
+
+        Predicate<Product> predicate = product -> product.getPrice() >= 100.0; // 100.0 pode ser dado em variável ou
+                                                                               //  entrado pelo usuário
+
+        list.removeIf(predicate);
 
         System.out.println();
 
