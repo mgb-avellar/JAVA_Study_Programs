@@ -30,8 +30,13 @@ public class Product {
     }
 
     // 2a versão
-    public static String staticUpperCaseName(Product product) {
-        return product.getName().toUpperCase();
+    //public static String staticUpperCaseName(Product product) {
+    //    return product.getName().toUpperCase();
+    //}
+
+    // 3a versão
+    public String nonStaticUpperCaseName() {
+        return getName().toUpperCase();
     }
 
     @Override

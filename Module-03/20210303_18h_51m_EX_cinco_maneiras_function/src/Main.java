@@ -39,7 +39,13 @@ nova lista contendo os nomes dos produtos em caixa alta.
         Para segunda versão:
          */
 
-        List<String> upperCasedNamesList =  list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+        //List<String> upperCasedNamesList =  list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+
+        /*
+        Para terceira versão:
+         */
+
+        List<String> upperCasedNamesList =  list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
 
 
         System.out.println();
