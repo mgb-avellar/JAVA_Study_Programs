@@ -39,9 +39,15 @@ public class Main {
         //    }
         //};
 
-        Comparator<Product> comp = (p1, p2) -> {
-            return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
-        };
+        /*
+        Quando o return é de uma linha só, posso melhorar a escrita
+         */
+
+        //Comparator<Product> comp = (p1, p2) -> {
+        //    return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+        //};
+
+        Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
 
         list.sort(comp);
 
