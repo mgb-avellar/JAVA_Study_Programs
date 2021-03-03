@@ -35,9 +35,9 @@ public class Product {
     //}
 
     // 3a versão
-    public String nonStaticUpperCaseName() {
-        return getName().toUpperCase();
-    }
+    //public String nonStaticUpperCaseName() {
+    //    return getName().toUpperCase();
+    //}
 
     @Override
     public String toString() {
