@@ -1,5 +1,4 @@
 import entities.Product;
-import util.UperCaseName;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,16 +33,16 @@ nova lista contendo os nomes dos produtos em caixa alta.
         // acontece que não podemos usar map em listas, por isso a necessida de transformar
         //  em stream
 
-        List<String> upperCasedNamesList =  list.stream().map(new UperCaseName()).collect(Collectors.toList());
+        //List<String> upperCasedNamesList =  list.stream().map(new UpperCaseName()).collect(Collectors.toList());
+
+        /*
+        Para segunda versão:
+         */
+
+        List<String> upperCasedNamesList =  list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+
 
         System.out.println();
-
-        // Veja a maneira legal de imprimir:
-
-        //for (Product p : list) {
-        //    System.out.println(p);
-        //}
-
         upperCasedNamesList.forEach(System.out::println);
 
     }

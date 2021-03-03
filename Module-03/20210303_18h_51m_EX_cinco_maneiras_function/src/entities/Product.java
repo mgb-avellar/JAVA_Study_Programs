@@ -30,15 +30,9 @@ public class Product {
     }
 
     // 2a versão
-    //public static void staticPriceUpdate(Product product) {
-    //    product.setPrice(product.getPrice() * 1.10);
-    //}
-
-    // 3a versão
-    public void nonStaticPriceUpdate() {
-        setPrice(getPrice() * 1.10);
+    public static String staticUpperCaseName(Product product) {
+        return product.getName().toUpperCase();
     }
-
 
     @Override
     public String toString() {
