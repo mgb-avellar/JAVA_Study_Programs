@@ -1,7 +1,6 @@
 import entities.Product;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class Main {
@@ -47,9 +46,15 @@ public class Main {
         //    return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
         //};
 
-        Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+        /*
+        Consigo instanciar a função lambda diretamente em list.sort()
+         */
 
-        list.sort(comp);
+        //Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+
+        //list.sort(comp);
+
+        list.sort((p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase()));
 
         System.out.println();
 
