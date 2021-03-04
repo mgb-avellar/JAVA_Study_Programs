@@ -1,7 +1,6 @@
 import db.DB;
 
 import java.sql.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Main {
@@ -15,6 +14,7 @@ public class Main {
         Essa primeira parte é a "Inserção simples com preparedStatement".
         Faremos uma v2 com "Inserção com recuperação de Id" (ver versionamento no GitHub)
         Essa segunda versão é como se inseríssemos um novo valor e retornássemos o ID
+        Essa é uma v2 com uma modificação para inserir dois departamentos recuperando os ids
          */
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -27,24 +27,8 @@ public class Main {
             connection = DB.getConnection();
 
             st = connection.prepareStatement(
-                    "INSERT INTO seller "
-                        + "(Name, Email, BirthDate, BaseSalary, DepartmentId)"   // preencho com os campos de dados dos vendedores, exceto o ID
-                        + "VALUES "
-                        + "(?, ?, ?, ?, ?)",
-                    Statement.RETURN_GENERATED_KEYS   // Para a segunda versão, veja o novo parâmetro (note a vírgula acima)
-
-            ); // Este é meu comando SQL preparado
-
-            // Coloco agora Carl Black na primeira interrogação ...
-            st.setString(1, "Carl Black");
-            //   ... email na segunda ...
-            st.setString(2, "carl@gmail.com");
-            //   ... data na terceira (NOTE A INSTANCIAÇÃO DIFERENTE!! NOTE QUE O DATE É DO SQL, NÃO DO UTILS!)
-            st.setDate(3, new java.sql.Date(sdf.parse("22/04/1985").getTime()) );
-            //   ... o salário na quarta ...
-            st.setDouble(4, 3000.00);
-            //   ... o Id do departamento dele
-            st.setInt(5, 4);
+                    "insert into department (Name) values ('Tools'),('Decor')",
+                    Statement.RETURN_GENERATED_KEYS);
 
             // Agora preciso executar os updates acima:
 
@@ -65,10 +49,6 @@ public class Main {
             }
         }
         catch (SQLException e) {
-
-            e.printStackTrace();
-        }
-        catch (ParseException e) {
 
             e.printStackTrace();
         }
