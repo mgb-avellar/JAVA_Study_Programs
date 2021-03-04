@@ -1,8 +1,6 @@
 import db.DB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -16,6 +14,7 @@ public class Main {
 
         Essa primeira parte é a "Inserção simples com preparedStatement".
         Faremos uma v2 com "Inserção com recuperação de Id" (ver versionamento no GitHub)
+        Essa segunda versão é como se inseríssemos um novo valor e retornássemos o ID
          */
 
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -31,8 +30,9 @@ public class Main {
                     "INSERT INTO seller "
                         + "(Name, Email, BirthDate, BaseSalary, DepartmentId)"   // preencho com os campos de dados dos vendedores, exceto o ID
                         + "VALUES "
-                        + "(?, ?, ?, ?, ?)"  // Essas interrogações marcam place holders, para preenchimento posterior
-                                             //   e correspondem aos campos acima
+                        + "(?, ?, ?, ?, ?)",
+                    Statement.RETURN_GENERATED_KEYS   // Para a segunda versão, veja o novo parâmetro (note a vírgula acima)
+
             ); // Este é meu comando SQL preparado
 
             // Coloco agora Carl Black na primeira interrogação ...
@@ -50,7 +50,19 @@ public class Main {
 
             int rowsAffected =  st.executeUpdate(); // Esse comando retorna o número de linhas alteradas.
 
-            System.out.println("Done! Rows affected: " + rowsAffected);
+            if (rowsAffected > 0) {
+
+                ResultSet rs = st.getGeneratedKeys();
+
+                while (rs.next()) {
+
+                    int id = rs.getInt(1);
+                    System.out.println("Done! Id = " + id);
+                }
+            }
+            else {
+                System.out.println("No rows affected.");
+            }
         }
         catch (SQLException e) {
 
