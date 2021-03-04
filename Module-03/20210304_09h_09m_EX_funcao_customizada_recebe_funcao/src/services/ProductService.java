@@ -3,16 +3,21 @@ package services;
 import entities.Product;
 
 import java.util.List;
+import java.util.function.Predicate;
 
 public class ProductService {
 
-    public double filteredSum(List<Product> list) {
+    /*
+    Versão 2
+     */
+
+    public double filteredSum(List<Product> list, Predicate<Product> criteria) {
 
         double sum = 0.0;
 
         for (Product p : list) {
 
-            if (p.getProductName().charAt(0) == 'T') {
+            if (criteria.test(p)) {
 
                 sum += p.getProductPrice();
             }
@@ -34,6 +39,8 @@ public class ProductService {
             if (???) { ...
 
         Essa condição ???, que é um predicado do tipo product, poderia estar no Main.
+
+        Esta é a versão 2 modificada conforme explicaçãop acima
          */
     }
 }

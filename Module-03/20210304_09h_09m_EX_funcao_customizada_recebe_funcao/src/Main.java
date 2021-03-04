@@ -4,6 +4,7 @@ import services.ProductService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Predicate;
 
 public class Main {
 
@@ -20,7 +21,13 @@ public class Main {
 
         ProductService ps = new ProductService();
 
-        double sum = ps.filteredSum(productList);
+        // Eu poderia colocar o predicado direto em filtered.List, mas decidi colocar fora para fazer testes
+
+        // Predicate<Product> pred = product -> product.getProductName().charAt(0) == 'T';
+        // Predicate<Product> pred = product -> product.getProductName().charAt(0) == 'T';
+        Predicate<Product> pred = product -> product.getProductPrice() <= 100.0;
+
+        double sum = ps.filteredSum(productList, pred);
 
         System.out.println();
         System.out.println("Sum = " + String.format("%.2f", sum));
