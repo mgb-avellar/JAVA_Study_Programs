@@ -1,15 +1,21 @@
 package application;
 
 import gui.util.Alerts;
+import gui.util.Constraints;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import java.net.URL;
 import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class ViewController {
+public class ViewController  implements Initializable {
+    // Esse 'implements Initializable' serve para o aplicativo usar as restrições da classe Constraints
+    //  Veja a implementação de Initializable ao final.
 
     // Preciso declarar as variáveis associadas com a tela que armazenarão os números a serem somados
 
@@ -53,7 +59,17 @@ public class ViewController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        // Coloco ações que quero que sejam executadas quando da instanciação do controlador
 
+        Constraints.setTextFieldDouble(txtNumber1);
+        Constraints.setTextFieldDouble(txtNumber1);
 
+        // Por exemplo, o tamanho máximo de 12 caracteres
+
+        Constraints.setTextFieldMaxLength(txtNumber1, 12);
+        Constraints.setTextFieldMaxLength(txtNumber2, 12);
+    }
 }
